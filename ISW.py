@@ -26,7 +26,7 @@ df = pd.DataFrame(list_)
 
 df.lastEditDate = pd.to_datetime(df.lastEditDate,unit='ms')
 
-df.to_csv('lastEditDate.csv',index=False)
+df.to_csv('./data/'+(datetime.today() - timedelta(days=1)).strftime(format='%Y%m%d')+'/'+(datetime.today() - timedelta(days=1)).strftime(format='%Y%m%d')+'_'+'lastEditDate.csv',index=False)
 
 layer = pd.DataFrame(requests.get(
     'https://www.arcgis.com/sharing/rest/content/items/9f04944a2fe84edab9da31750c2b15eb/data?f=json'
@@ -39,7 +39,7 @@ query = '/query?f=geoJSON&maxRecordCountFactor=4&resultOffset=0&resultRecordCoun
 for i in range(len(layer)):
     data = requests.get(layer.url[i]+query).json()
     json_string = json.dumps(data)
-    with open((datetime.today() - timedelta(days=1)).strftime(format='%Y%m%d')+'_'+layer.layer[i]+'.geojson', 'w') as f:
+    with open('./data/'+(datetime.today() - timedelta(days=1)).strftime(format='%Y%m%d')+'/'+(datetime.today() - timedelta(days=1)).strftime(format='%Y%m%d')+'_'+layer.layer[i]+'.geojson', 'w') as f:
         f.write(json_string)
     time.sleep(5)
 
