@@ -39,10 +39,6 @@ query = '/query?f=geoJSON&maxRecordCountFactor=4&resultOffset=0&resultRecordCoun
 for i in range(len(layer)):
     data = requests.get(layer.url[i]+query).json()
     json_string = json.dumps(data)
-    with open('./data/'+layer.layer[i]+'.geojson', 'w') as f:
+    with open('data/'+layer.layer[i]+'.geojson', 'w') as f:
         f.write(json_string)
     time.sleep(5)
-
-
-
-
