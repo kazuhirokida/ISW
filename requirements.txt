@@ -4,3 +4,4 @@ json
 pandas
 time
 datetime
+numpy
