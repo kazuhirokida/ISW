@@ -1,6 +1,5 @@
 pip
 requests
-json
 pandas
 time
 datetime
