@@ -26,7 +26,7 @@ df = pd.DataFrame(list_)
 
 df.lastEditDate = pd.to_datetime(df.lastEditDate,unit='ms')
 
-# df.to_csv('./data/lastEditDate.csv',index=False)
+df.to_csv('data/lastEditDate.csv',index=False)
 
 layer = pd.DataFrame(requests.get(
     'https://www.arcgis.com/sharing/rest/content/items/9f04944a2fe84edab9da31750c2b15eb/data?f=json'
